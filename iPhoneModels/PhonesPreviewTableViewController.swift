@@ -20,6 +20,12 @@ class PhonesPreviewTableViewController: UITableViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { }
     
     // MARK: UITableViewDataSource

@@ -11,11 +11,14 @@ import SAPFiori
 
 class PhonesTableViewController: UITableViewController {
     
-    let viewModel = PhonesViewModel()
+    private let viewModel = PhonesViewModel()
+    private let searchController = FUISearchController(searchResultsController: nil)
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         configureTableView()
         
@@ -59,10 +62,41 @@ private extension PhonesTableViewController {
     }
     
     func configureSearchController() {
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        searchController.searchBar.isBarcodeScannerEnabled = true
+        searchController.searchBar.delegate = self
         
+        definesPresentationContext = true
+        
+        navigationItem.searchController = searchController
     }
     
     @objc func displayFilters(_ sender: UIBarButtonItem) {
         
     }
+}
+
+// MARK: - UISearchControllerDelegate
+extension PhonesTableViewController: UISearchControllerDelegate { }
+
+// MARK: - UISearchResultsUpdating
+extension PhonesTableViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        
+        viewModel.applyFilter(for: searchText)
+
+        tableView.reloadData()
+//
+//        updateTableView()
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+extension PhonesTableViewController: UISearchBarDelegate {
+    
 }

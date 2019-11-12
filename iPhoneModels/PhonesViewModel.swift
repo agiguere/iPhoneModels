@@ -11,7 +11,8 @@ import SAPFiori
 
 class PhonesViewModel {
     
-    private let phones = Phone.getFromPropertyList() ?? []
+    private var phones = Phone.getFromPropertyList() ?? []
+    private var initialPhones = Phone.getFromPropertyList() ?? []
     
     init() { }
     
@@ -27,5 +28,13 @@ class PhonesViewModel {
         cell.headlineText = phone.name
         cell.detailImage = UIImage(named: phone.imageName)
         cell.accessoryType = .disclosureIndicator
+    }
+    
+    func applyFilter(for searchText: String) {
+        if searchText.isEmpty {
+            phones = initialPhones
+        } else {
+            phones = initialPhones.filter( {$0.name.range(of: searchText, options: .caseInsensitive) != nil })
+        }
     }
 }

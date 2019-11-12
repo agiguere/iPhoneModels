@@ -22,19 +22,6 @@
 		62FFDB622366233300CE74C2 /* PhonesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FFDB612366233300CE74C2 /* PhonesViewModel.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		6234508D236F5E8400AA4BAC /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		62D8EEDE236719DB0015FF27 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		62FFDB2F2365DB1B00CE74C2 /* iPhoneModels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneModels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +154,6 @@
 				62FFDB2B2365DB1B00CE74C2 /* Sources */,
 				62FFDB2C2365DB1B00CE74C2 /* Frameworks */,
 				62FFDB2D2365DB1B00CE74C2 /* Resources */,
-				6234508D236F5E8400AA4BAC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
